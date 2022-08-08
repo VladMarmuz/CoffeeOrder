@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: Admin
+  Date: 07.08.2022
+  Time: 22:25
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+>
+
+<f:view>
+    <h:head>
+        <title>Orders</title>
+    </h:head>
+
+    <h:body>
+        <h:form>
+            <p:panel>
+                <br/>
+
+                <p:commandButton value="На главную" action="main"/>
+
+            </p:panel>
+        </h:form>
+
+    </h:body>
+</f:view>
+
+<f:view>
+    <h:head>
+        <title>Новый заказ</title>
+    </h:head>
+
+    <h:body>
+        <h:form>
+            <p:panel header="Новый заказ">
+                <div class="card">
+                    <div class="ui-fluid p-formgrid p-grid">
+                        <div class="p-field p-col-12 p-md-3">
+                            <p:outputLabel for="Coffee" value="Кофе:      "/>
+                            <p:selectOneMenu id="Coffee" value="#{orderCDI.coffee}"
+                                             converter="converter.CoffeeConverter">
+                                <f:selectItems value="#{coffeeCDI.allCoffee}"></f:selectItems>
+                            </p:selectOneMenu>
+                        </div>
+                        <br/>
+                        <div class="p-field p-col-12 p-md-3">
+                            <p:outputLabel for="amount" value="Колличество: "/>
+                            <p:inputText id="amount" value="#{orderCDI.amount}"
+                                         required="true" requiredMessage="Напишите колличество"
+                                         validator="#{orderCDI.validateAmount}">
+                            </p:inputText>
+                            <p:message for="amount"/>
+                        </div>
+                        <br/>
+                        <p:selectOneRadio id="delivery" value="#{orderCDI.delivery}" unselectable="false"
+                                          required="true" requiredMessage="Выберите доставку">
+                            <f:selectItem itemLabel="Courier delivery" itemValue="Курьером"/>
+                            <f:selectItem itemLabel="Self delivery" itemValue="Самовывоз"/>
+                        </p:selectOneRadio>
+                        <p:message for="delivery"/>
+                        <br/>
+                        <div class="p-field p-col-12 p-md-3">
+                            <p:outputLabel for="timeForDelivery" value="Время доставки "/>
+                            <p:inputText id="timeForDelivery" value="#{orderCDI.timeForDelivery}"
+                                         required="true" requiredMessage="Выберите время доставки"
+                                         validator="#{orderCDI.validateDeliveryTime}"/>
+                            <p:message for="timeForDelivery"/>
+                        </div>
+
+                        <p><p:commandButton value="Заказать" action="#{orderCDI.add}" ajax="false">
+                        </p:commandButton></p>
+
+                    </div>
+                </div>
+            </p:panel>
+
+        </h:form>
+    </h:body>
+</f:view>
+
+</html>
