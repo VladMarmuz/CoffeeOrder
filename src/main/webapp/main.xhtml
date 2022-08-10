@@ -16,24 +16,19 @@
 
 <f:view>
     <h:head>
-        <title>Main page</title>
+        <title>Главная</title>
     </h:head>
-
     <h:body>
-    <h:form>
-        <p:panelGrid layout="grid" columns="2" >
-            <p:column>
-                <p:commandButton value="Заказать" action="newOrder"></p:commandButton>
-            </p:column>
-            <p:column >
-                <p:outputLabel value="          "></p:outputLabel>
-                <p:commandButton value="Заказы" action="allOrders"></p:commandButton>
-            </p:column>
-        </p:panelGrid>
-
-
-    </h:form>
-
+        <h:form>
+            <p:panelGrid layout="grid" columns="2">
+                <p:column>
+                    <p:commandButton value="Заказать" action="newOrder"></p:commandButton>
+                </p:column>
+                <p:column>
+                    <p:commandButton value="Заказы" action="allOrders"></p:commandButton>
+                </p:column>
+            </p:panelGrid>
+        </h:form>
     </h:body>
 </f:view>
 

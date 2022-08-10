@@ -24,12 +24,9 @@
         <h:form>
             <p:panel header="Список заказов">
                 <br/>
-
                 <p:commandButton value="На главную" action="main"/>
-
             </p:panel>
         </h:form>
-
     </h:body>
 </f:view>
 
@@ -38,36 +35,30 @@
     <h:body>
         <h:form>
             <div class="card">
-                <p:dataTable var="order" value="#{orderCDI.ordersList}">
-                    <p:column headerText="Номер заказа">
-                        <p:outputLabel value="#{order.id}"/>
-                    </p:column>
+                <p:dataTable var="order" value="#{orderBean.ordersList}">
 
                     <p:column headerText="Вид кофе">
                         <h:outputText value="#{order.coffee}"/>
                     </p:column>
-
                     <p:column headerText="Колличество">
                         <h:outputText value="#{order.amount}"/>
                     </p:column>
-
+                    <p:column headerText="Цена">
+                        <h:outputText value="#{order.price}"/>
+                    </p:column>
                     <p:column headerText="Доставка">
                         <h:outputText value="#{order.delivery}"/>
                     </p:column>
                     <p:column headerText="Время доставки">
                         <h:outputText value="#{order.timeForDelivery}"/>
                     </p:column>
-                    <p:column headerText="Цена">
-                        <h:outputText value="#{order.price}"/>
-                    </p:column>
                     <p:column headerText="Изменить/Удалить">
-                        <p:commandButton value="Изменить" action="#{orderCDI.update(order)}"/>
-                        <p:commandButton value="Удалить" action="#{orderCDI.deleteOrder(order)}"/>
+                        <p:commandButton value="Изменить" action="#{orderBean.update(order)}"/>
+                        <p:commandButton value="Удалить" action="#{orderBean.deleteOrder(order)}"/>
                     </p:column>
                 </p:dataTable>
             </div>
         </h:form>
-
     </h:body>
 </f:view>
 
