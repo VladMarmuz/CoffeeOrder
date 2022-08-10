@@ -7,6 +7,7 @@ public class Order{
     @Id
     @GeneratedValue
     private long id;
+
     private int amount;
     private String timeForDelivery;
     private String delivery;
@@ -74,5 +75,20 @@ public class Order{
         this.delivery = delivery;
         this.price = price;
         this.coffee = coffee;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Order)) return false;
+
+        Order order = (Order) o;
+
+        if (getId() != order.getId()) return false;
+        if (getAmount() != order.getAmount()) return false;
+        if (Double.compare(order.getPrice(), getPrice()) != 0) return false;
+        if (!getTimeForDelivery().equals(order.getTimeForDelivery())) return false;
+        if (!getDelivery().equals(order.getDelivery())) return false;
+        return getCoffee().equals(order.getCoffee());
     }
 }

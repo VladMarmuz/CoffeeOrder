@@ -10,8 +10,11 @@ public class Coffee {
     @Id
     @GeneratedValue
     private long id;
+
+    @Column(name = "coffee_type")
     private String coffeeType;
 
+    @Column(name = "price")
     private double price;
 
     @OneToMany(mappedBy = "coffee")
