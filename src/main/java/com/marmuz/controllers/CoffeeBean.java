@@ -1,4 +1,4 @@
-package com.marmuz.cdi;
+package com.marmuz.controllers;
 
 import com.marmuz.ejb.CoffeeEJB;
 import com.marmuz.models.Coffee;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @ManagedBean
 @SessionScoped
-public class CoffeeCDI implements Serializable {
+public class CoffeeBean implements Serializable {
 
     private long id;
     private String coffeeType;
