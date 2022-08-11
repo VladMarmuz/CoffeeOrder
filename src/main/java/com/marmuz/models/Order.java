@@ -1,16 +1,23 @@
 package com.marmuz.models;
+
 import javax.persistence.*;
+
 @Entity
 @Table(name = "order")
-public class Order{
+public class Order {
 
     @Id
     @GeneratedValue
     private long id;
 
+    @Column(name = "amount")
     private int amount;
+
+    @Column(name = "typeForDelivery")
     private String timeForDelivery;
+    @Column(name = "delivery")
     private String delivery;
+    @Column(name = "price")
     private double price;
     @ManyToOne
     @JoinColumn(name = "coffee_id", nullable = false)
@@ -19,10 +26,6 @@ public class Order{
 
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public int getAmount() {

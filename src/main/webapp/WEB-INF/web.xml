@@ -8,8 +8,8 @@
              version="2.4">
         <display-name>Archetype Created Web Application</display-name>
     <context-param>
-        <param-name>com.sun.faces.disallowDoctypeDecl</param-name>
-        <param-value>false</param-value>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
     </context-param>
         <servlet>
             <servlet-name>FacesServlet</servlet-name>

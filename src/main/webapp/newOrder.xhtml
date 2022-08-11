@@ -12,63 +12,58 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
-<f:view>
-    <h:head>
-        <title>Заказать</title>
-    </h:head>
-    <h:body>
-        <h:form>
-            <p:panel>
-                <p:commandButton value="На главную" action="main"/>
-            </p:panel>
-        </h:form>
-    </h:body>
-</f:view>
-<f:view>
-       <h:body>
-        <h:form>
-            <p:panel header="Новый заказ">
-                <div class="card">
-                    <div class="ui-fluid p-formgrid p-grid">
-                        <div class="p-field p-col-12 p-md-3">
-                            <p:outputLabel for="Coffee" value="Кофе:      "/>
-                            <p:selectOneMenu id="Coffee" value="#{orderBean.coffee}"
-                                             converter="converter.CoffeeConverter">
-                                <f:selectItems value="#{coffeeBean.allCoffee}"></f:selectItems>
-                            </p:selectOneMenu>
-                        </div>
-                        <br/>
-                        <div class="p-field p-col-12 p-md-3">
-                            <p:outputLabel for="amount" value="Колличество: "/>
-                            <p:inputText id="amount" value="#{orderBean.amount}"
-                                         required="true" requiredMessage="Укажите колличесвто"
-                                         validator="#{orderBean.validateAmount}">
-                            </p:inputText>
-                            <p:message for="amount"/>
-                        </div>
-                        <br/>
-                        <p:selectOneRadio id="delivery" value="#{orderBean.delivery}" unselectable="false"
-                                          required="true" requiredMessage="Выберите доставку">
-                            <f:selectItem itemLabel="Courier" itemValue="Курьером"/>
-                            <f:selectItem itemLabel="Self" itemValue="Самовывоз"/>
-                        </p:selectOneRadio>
-                        <br/>
-                        <div class="p-field p-col-12 p-md-3">
-                            <p:outputLabel for="timeForDelivery" value="Время доставки "/>
-                            <p:inputText id="timeForDelivery" value="#{orderBean.timeForDelivery}"
-                                         required="true" requiredMessage="Выберите время доставки"
-                                         validator="#{orderBean.validateDeliveryTime}"/>
-                            <p:message for="timeForDelivery"/>
-                        </div>
-                        <p><p:commandButton value="Заказать" action="#{orderBean.add}" ajax="false">
-                        </p:commandButton></p>
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Заказать</title>
+</h:head>
+
+<h:body>
+    <h:form>
+        <p:panel>
+            <p:commandButton value="На главную" action="main"/>
+        </p:panel>
+    </h:form>
+    <h:form>
+        <p:panel header="Новый заказ">
+            <div class="card">
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-3">
+                        <p:outputLabel for="Coffee" value="Кофе:      "/>
+                        <p:selectOneMenu id="Coffee" value="#{orderBean.coffee}"
+                                         converter="converter.CoffeeConverter">
+                            <f:selectItems value="#{coffeeBean.allCoffee}"/>
+                        </p:selectOneMenu>
                     </div>
+                    <br/>
+                    <div class="p-field p-col-12 p-md-3">
+                        <p:outputLabel for="amount" value="Колличество: "/>
+                        <p:inputText id="amount" value="#{orderBean.amount}"
+                                     required="true" requiredMessage="Укажите колличесвто"
+                                     validator="#{orderBean.validateAmount}">
+                        </p:inputText>
+                        <p:message for="amount"/>
+                    </div>
+                    <br/>
+                    <p:selectOneRadio id="delivery" value="#{orderBean.delivery}" unselectable="false"
+                                      required="true" requiredMessage="Выберите доставку">
+                        <f:selectItem itemLabel="Courier" itemValue="Курьером"/>
+                        <f:selectItem itemLabel="Self" itemValue="Самовывоз"/>
+                    </p:selectOneRadio>
+                    <br/>
+                    <div class="p-field p-col-12 p-md-3">
+                        <p:outputLabel for="timeForDelivery" value="Время доставки "/>
+                        <p:inputText id="timeForDelivery" value="#{orderBean.timeForDelivery}"
+                                     required="true" requiredMessage="Выберите время доставки"
+                                     validator="#{orderBean.validateDeliveryTime}"/>
+                        <p:message for="timeForDelivery"/>
+                    </div>
+                    <p><p:commandButton value="Заказать" action="#{orderBean.add}" ajax="false">
+                    </p:commandButton></p>
                 </div>
-            </p:panel>
-        </h:form>
-    </h:body>
-</f:view>
+            </div>
+        </p:panel>
+    </h:form>
+</h:body>
 
 </html>
