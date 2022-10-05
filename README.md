@@ -1,6 +1,7 @@
 # CoffeeOrder
 
-This is a test task! In this app user can order coffee, edit your order and delete order.
+This is a test task from SoftClub!
+In this app user can order coffee, edit your order and delete order.
 
 
 
